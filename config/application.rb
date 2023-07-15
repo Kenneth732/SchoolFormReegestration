@@ -29,7 +29,13 @@ module SchoolApi
     # Adding back cookies and session middleware
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore
-
+    
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'  # Update with specific origins if needed
+        resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options]
+      end
+    end
 
     # Configuration for the application, engines, and railties goes here.
     #

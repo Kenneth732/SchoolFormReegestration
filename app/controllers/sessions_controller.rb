@@ -1,3 +1,5 @@
+
+
 class SessionsController < ApplicationController
 
     def create
@@ -15,3 +17,5 @@ class SessionsController < ApplicationController
         head :no_content
       end
 end
+
+
